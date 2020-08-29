@@ -1,12 +1,17 @@
-import React from 'react';
+import React, {  } from 'react';
 import './App';
-import Dashboard from './components/Dashboard/DashBoard';
+import Dashboard from './components/DashBoard/DashBoard';
+import styles from './App.module.scss'
 
 const App = () => {
+
   return (
-    <div className="App">
-      <div className="main-container">
-        <Dashboard />
+    <div className={styles.App}>
+      <div className={styles.mainContainer}>
+        <h2>GovTech Book Store</h2>
+        <div className={styles.tableContainer}>
+          <Dashboard/>
+        </div>
       </div>
     </div>
   );
