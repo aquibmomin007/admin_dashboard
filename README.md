@@ -1,2 +1,2 @@
-# admin_dashboard
-Sample Admin Dashboard in React
+# admin dashboard
+Sample admin dashboard in React
