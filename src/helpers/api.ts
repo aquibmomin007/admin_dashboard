@@ -1,47 +1,51 @@
-import axiosInstance from "./axiosInstance";
-import { dashBoardListColumnsProps } from "./dashBoardListColumns";
+import axiosInstance from './axiosInstance';
+import { dashBoardListColumnsProps } from './dashBoardListColumns';
 
-const formatList = (data: any): dashBoardListColumnsProps[] => {
-  const keys = Object.keys(data)
-  const result: dashBoardListColumnsProps[] = []
-  
+type bookListResponse = {
+  [key: string]: dashBoardListColumnsProps;
+};
+
+const formatList = (data: bookListResponse): dashBoardListColumnsProps[] => {
+  const keys = Object.keys(data);
+  const result: dashBoardListColumnsProps[] = [];
+
   keys.forEach((key, i) => {
     if (data[key]) {
-      result.push({...data[key], id: key, key: i})
+      result.push({ ...data[key], id: key, key: i });
     }
-  })
+  });
 
-  return result.reverse()
-}
+  return result.reverse();
+};
 
-const formatUpdatedObj = (data: dashBoardListColumnsProps) => {
-  console.log(data)
-  const result = {
-    [data['id']]: data
-  }
+type bookListResult = {
+  data: dashBoardListColumnsProps[];
+  error?: Error;
+};
 
-  return result
-}
-
-export const fetchBookList = async () => { 
-  let data: dashBoardListColumnsProps[] = [];
-  let error: Error | undefined;
+export const fetchBookList = async (): Promise<bookListResult> => {
+  const response: bookListResult = { data: [] };
 
   try {
     const result = await axiosInstance.get('/bookList.json');
-    data = formatList(result.data)
+    response.data = formatList(result.data);
   } catch (err) {
-    error = err
+    response.error = err;
   }
 
-  return { data, error }
+  return response;
 };
 
-export const deleteBook = (bookId: string) =>
-  axiosInstance.delete('/bookList/' + bookId + '.json')
+export const deleteBook = (bookId: string): Promise<bookListResponse> =>
+  axiosInstance.delete(`/bookList/${bookId}.json`);
 
-export const addNewBook = (newBook: dashBoardListColumnsProps) => 
-  axiosInstance.post('/bookList.json', newBook)
+export const addNewBook = (
+  newBook: dashBoardListColumnsProps
+): Promise<bookListResponse> => axiosInstance.post('/bookList.json', newBook);
 
-export const updateBook = (updatedBook: dashBoardListColumnsProps) => 
-  axiosInstance.patch('/bookList.json', formatUpdatedObj(updatedBook))
+export const updateBook = (
+  updatedBook: dashBoardListColumnsProps
+): Promise<null> =>
+  axiosInstance.patch('/bookList.json', {
+    [updatedBook.id]: updatedBook,
+  });

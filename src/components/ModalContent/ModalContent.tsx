@@ -1,5 +1,5 @@
 import React from "react";
-import { Input, Button, Form } from "antd";
+import { Input, Button, Form, InputNumber } from "antd";
 import { tableColumns, dashBoardListColumnsProps } from "../../helpers/dashBoardListColumns";
 import { ModalMode } from "../DashBoard/DashBoard";
 
@@ -39,7 +39,7 @@ export const ModalContent: React.FC<Omit<ModalContentProps, 'onClose' | 'visible
           name={field.name}
           rules={[{ required: true, message: `Please enter the  ${field.name}!` }]}
         >
-          <Input />
+          {field.type === 'number' ? <InputNumber /> : <Input />}
         </Form.Item>
       ))}
 
