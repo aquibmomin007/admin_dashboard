@@ -1,6 +1,6 @@
 import React, {  } from 'react';
 import './App';
-import Dashboard from './components/Dashboard/Dashboard';
+import BookListing from './components/BookListing/BookListing';
 import styles from './App.module.scss'
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       <div className={styles.mainContainer}>
         <h2>GovTech Book Store</h2>
         <div className={styles.tableContainer}>
-          <Dashboard/>
+          <BookListing/>
         </div>
       </div>
     </div>

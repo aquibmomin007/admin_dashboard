@@ -6,7 +6,7 @@ import TableWrapper from './TableWrapper';
 
 export type ModalMode = 'edit' | 'create';
 
-const Dashboard = () => {
+const BookListing = () => {
   const [bookList, setBookList] = useState<dashBoardListColumnsProps[]>([])
 
   const refreshResults = useCallback(() => {
@@ -23,4 +23,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard;
+export default BookListing;

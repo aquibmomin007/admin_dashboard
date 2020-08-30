@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, Button, Form, InputNumber } from "antd";
 import { tableColumns, dashBoardListColumnsProps } from "../../helpers/dashBoardListColumns";
-import { ModalMode } from "../Dashboard/Dashboard";
+import { ModalMode } from "../BookListing/BookListing";
 
 type ModalContentProps = {
   visible: boolean
