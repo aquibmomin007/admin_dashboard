@@ -11,7 +11,11 @@ https://github.com/facebook/create-react-app
 * React Icons are used
 * node version >= 12.0.0
 * ant-design styled components
+* axios client used for HTTP requests
 * firebase for CRUD
+  ```
+   URL used for firebase:  https://bookstore-react-app.firebaseio.com
+  ```
 
 ```bash
 https://github.com/aquibmomin007/admin_dashboard
@@ -44,7 +48,7 @@ yarn lint
 ```
 
 ## 2. Stories
-- **Admin Dashboard Listing page<br/> 
+- **Admin Dashboard Listing page**<br/> 
   ![Dashboard List Page](markdown-images/main-dashboard.png)<br/>
 
 - **Create New Book Modal**<br />
