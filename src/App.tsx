@@ -1,6 +1,6 @@
 import React, {  } from 'react';
 import './App';
-import Dashboard from './components/DashBoard/DashBoard';
+import Dashboard from './components/Dashboard/Dashboard';
 import styles from './App.module.scss'
 
 const App = () => {
