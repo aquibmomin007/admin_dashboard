@@ -3,7 +3,7 @@ import styles from './BookModalWrapper.module.scss'
 import { dashBoardListColumnsProps } from '../../helpers/dashBoardListColumns';
 import { updateBook, addNewBook } from '../../helpers/api'
 import { ModalContent } from '../ModalContent/ModalContent';
-import { ModalMode } from '../DashBoard/DashBoard';
+import { ModalMode } from '../Dashboard/Dashboard';
 import Modal from 'antd/lib/modal/Modal';
 
 type BookModalWrapperProps = {
